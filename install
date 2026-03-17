@@ -111,7 +111,8 @@ fi
 # =============================================
 # Run the appropriate installer
 # =============================================
-chmod +x installJava installBedrock startserver stopserver startJavaServer startBedrockServer startPlayIt startAfk uninstall update backup 2>/dev/null
+chmod +x installJava installBedrock startserver stopserver startJavaServer startBedrockServer startPlayIt startAfk uninstall update backup .checkserver 2>/dev/null
+chmod +x JavaInstallScripts/* BedrockInstallScripts/* 2>/dev/null
 
 if [[ "$choiceForServer" == "1" ]]; then
   info "Running Java Installation..."

@@ -99,4 +99,4 @@ echo ""
 
 # Post-launch health check
 sleep 12
-"$MAIN_DIR/.checkserver"
+bash "$MAIN_DIR/.checkserver"
