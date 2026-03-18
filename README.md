@@ -57,7 +57,6 @@ YOUR_VARIABLES=here
 
 ## Links
 - [Submit Issues](https://github.com/Tasin546/mcserverV2/issues)
-- [Discord Server](https://discord.gg/V2R26jBEzN)
 
 ## Credits
 > Project Creator & Maintainer: *[Tasin546](https://github.com/Tasin546)*
