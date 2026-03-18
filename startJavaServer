@@ -8,12 +8,12 @@ rm -f "$SENTINEL"
 
 cd "$MAIN_DIR/server" || { echo "> ERROR: server/ directory not found."; exit 1; }
 
-# Detect total RAM for JVM flags (leave 1 GB for the OS)
+# Detect total RAM — reserve only 512MB for the OS, give rest to Minecraft
 mem_kb=$(grep MemTotal /proc/meminfo | awk '{print $2}')
-mem_gb=$(( mem_kb / 1024 / 1024 ))
-jvm_mem=$(( mem_gb > 1 ? mem_gb - 1 : 1 ))
+mem_mb=$(( mem_kb / 1024 ))
+jvm_mem=$(( mem_mb > 512 ? mem_mb - 512 : 512 ))
 
-echo "> Allocating ${jvm_mem}GB RAM to the Minecraft server."
+echo "> Allocating ${jvm_mem}MB RAM to the Minecraft server."
 
 RESTART_DELAY=10
 CRASH_COUNT=0
@@ -37,7 +37,7 @@ while true; do
     cd "$MAIN_DIR/server"
     ./run.sh -nogui
   else
-    "$JAVA" -Xmx${jvm_mem}G -Xms${jvm_mem}G \
+    "$JAVA" -Xmx${jvm_mem}M -Xms${jvm_mem}M \
       -XX:+UseG1GC \
       -XX:+ParallelRefProcEnabled \
       -XX:MaxGCPauseMillis=200 \
