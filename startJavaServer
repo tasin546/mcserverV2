@@ -15,7 +15,7 @@ jvm_mem=$(( mem_gb > 1 ? mem_gb - 1 : 1 ))
 
 echo "> Allocating ${jvm_mem}GB RAM to the Minecraft server."
 
-RESTART_DELAY=5
+RESTART_DELAY=10
 CRASH_COUNT=0
 MAX_CRASHES=5
 
